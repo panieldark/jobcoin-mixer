@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Jobcoin Mixer | Daniel Park</title>
+	<link rel="shortcut icon" href="{% static 'media/logos/cm.svg' %}" />
+
+	<link rel="stylesheet" href="{% static 'static/css/styles.css' %}">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animsition@4.0.2/dist/css/animsition.min.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/animsition@4.0.2/dist/js/animsition.min.js"></script>
+</head>
+
+
+<body style="background-color: black; margin: 0" class="animsition">
+	<div class="desktop container">
+
+
+
+		<!-- START: Header -->
+		<img src="{% static 'media/logos/cryptomixerlogo.svg' %}" alt="CryptoMixer Logo" class="logo"
+			style="z-index: 20;">
+
+		<a href="#" class="about">
+
+			About
+		</a>
+		<a href="#" class="careers">
+
+			Careers
+		</a>
+
+
+		<button class="nav-button">
+			<a href="{% url 'mixer:mixer_form_page' %}" class="nav-text">
+				Get Mixing!
+			</a>
+		</button>
+		<!-- END: Header -->
+		33
+		<!-- START: Above Fold -->
+		<div class="landing-header">
+			Take back your privacy within minutes.
+		</div>
+
+		<div class="landing-subheader">
+			CryptoMixer hides your financial data by shuffling your coins amongst a reserve of wallets owned by us. Once
+			your
+			coins are sent back, any future transfers will be guaranteed to be anonymous.
+		</div>
+
+		<button class="landing-button">
+			<a href="{% url 'mixer:mixer_form_page' %}" class="landing-button-text">
+				Get Started
+			</a>
+		</button>
+
+		<div class="fist-shadow"></div>
+		<div class="fist-cutout"></div>
+
+		<!-- END: Above fold -->
+
+
+		<!-- START: Partners -->
+		<div class="in-partnership-with">In Partnership With</div>
+
+		<div class="gemini"></div>
+		<div class="cb"></div>
+		<div class="binance"></div>
+
+
+		<!-- END: Partners -->
+
+
+
+
+		<!-- START: How it works process -->
+		<div class="how-it-works">
+			How it works
+		</div>
+
+		<div class="one">1</div>
+		<div class="how-1"></div>
+		<img src="{% static 'media/logos/exchange.svg' %}" alt="Exchange" class="exchange">
+
+		<div class="two">2</div>
+		<div class="how-2"></div>
+		<img src="{% static 'media/logos/business.svg' %}" alt="Mix" class="business">
+
+		<div class="three">3</div>
+		<div class="how-3"></div>
+		<img src="{% static 'media/logos/visibility.svg' %}" alt="Privacy" class="visibility">
+
+
+		<div class="one-text">You transfer your coins</div>
+		<div class="one-subtext">We will provide you a deposit address to securely transfer your coins to.</div>
+
+		<div class="two-text">We exchange with reserves</div>
+		<div class="two-subtext">We will take your coins and mix them amongst a large set of reserve coins.</div>
+
+		<div class="three-text">Your transfers become private</div>
+		<div class="three-subtext">We will return your coins in discrete increments, which are now ready to be used.
+		</div>
+
+		<!-- END: How it works process -->
+
+		<!-- START: Reviews -->
+		<div class="reviews-header">See what people are saying</div>
+
+		<div class="review-boxes">
+
+			<div class="review-1-box review-box"></div>
+			<div class="review-2-box review-box"></div>
+			<div class="review-3-box review-box"></div>
+			<div class="review-4-box review-box"></div>
+			<div class="review-5-box review-box"></div>
+
+			<img src="{% static 'media/reviews/stars.svg' %}" alt="5-stars" class="star-1">
+			<img src="{% static 'media/reviews/stars.svg' %}" alt="5-stars" class="star-2">
+			<img src="{% static 'media/reviews/stars.svg' %}" alt="5-stars" class="star-3">
+			<img src="{% static 'media/reviews/stars.svg' %}" alt="5-stars" class="star-4">
+			<img src="{% static 'media/reviews/stars.svg' %}" alt="5-stars" class="star-5">
+
+			<div class="review-1-text reviews-text">Sociosqu habitasse vulputate odio nisi phasellus. Cras luctus sit
+				leo
+				pharetra nec semper commodo rutrum aptent feugiat.</div>
+			<div class="review-2-text reviews-text">Magnis nulla mollis nec tundae. Eu na clase ante accumsan habitant
+				morbi
+				neque hac purus magnis varius pulvinar hac pede.</div>
+			<div class="review-3-text reviews-text">Faucibus. At penatibus ad cubilia risus senectus varius sociis
+				suspendisse
+				integer suspendisse turpis senectus pellentesque nibh iaculis.</div>
+			<div class="review-4-text reviews-text">Senectus. At penatibus ad cubilia risus varius sociis suspendisse
+				integer
+				suspendisse turpis senectus pellentesque nibh iaculis.</div>
+
+			<div class="review-1-avatar"></div>
+			<div class="review-2-avatar"></div>
+			<div class="review-3-avatar"></div>
+			<div class="review-4-avatar"></div>
+			<div class="review-5-avatar"></div>
+
+
+			<div class="review-names r1-name">Karen Showlock</div>
+			<div class="review-titles r1-title">CTO at Coinable</div>
+			<div class="review-names r2-name">Lizzie Schwartz</div>
+			<div class="review-titles r2-title">Content Writer at TechBrunch</div>
+			<div class="review-names r3-name">Will Jahromi</div>
+			<div class="review-titles r3-title">Product at Jemini</div>
+			<div class="review-names r4-name">Lucas Mendes</div>
+			<div class="review-titles r4-title">CFO at SlackOff</div>
+
+
+			<img src="{% static 'media/reviews/left_arrow.svg' %}" alt="Left Arrow" class="left-arrow"
+				draggable="false">
+			<img src="{% static 'media/reviews/right_arrow.svg' %}" alt="Right" class="right-arrow" draggable="false">
+
+		</div>
+
+
+		<!-- END: Reviews -->
+
+		<!-- START: Final CTA -->
+		<div class="final-cta-header">
+			Ready to conceal your payments?
+		</div>
+		<div class="final-cta-subheader">
+			Privacy shouldn’t be a ‘nice-to-have.’ It’s an essential. Let’s put your payment transfers information back
+			in
+			your hands.
+		</div>
+		<button class="final-cta-button">
+			<a href="{% url 'mixer:mixer_form_page' %}" class="final-cta-button-text">
+
+				Let's get started!
+			</a>
+		</button>
+
+
+		<!-- END: Final CTA -->
+	</div>
+
+	<footer>
+		<div class="footer-container">
+			<div class="footer-subheader">
+				Keep your transfer payments private.
+			</div>
+			<img src="{% static 'media/logos/cryptomixerlogo.svg' %}" alt="CryptoMixer Logo" class="footer-logo">
+
+			<div class="footer-nav-header ft-head-1">
+				Company
+			</div>
+			<div class="footer-nav-link ft-link-1-1">
+				About Us
+			</div>
+			<div class="footer-nav-link ft-link-1-2">
+				Careers
+			</div>
+			<div class="footer-nav-link ft-link-1-3">
+				Support
+			</div>
+			<div class="footer-nav-link ft-link-1-4">
+				Knowledgebase
+			</div>
+
+
+			<div class="footer-nav-header ft-head-2">
+				Contact Us
+			</div>
+			<div class="footer-nav-link ft-link-2-1">
+				info@cryptomixer.com
+			</div>
+			<div class="footer-nav-link ft-link-2-2">
+				1-800-100-8000
+			</div>
+			<div class="footer-nav-link ft-link-2-3">
+				600 3rd Ave, New York, NY 10016
+			</div>
+
+
+
+
+			<div class="footer-nav-header ft-head-3">
+				Stay up to date
+			</div>
+
+			<div class="footer-nav-link ft-link-3-1">
+				Get word of any updates
+			</div>
+
+			<div class="footer-nav-link ft-email">
+			</div>
+			<div class="ft-email-text">Email</div>
+			<img src="{% static 'media/arrow.svg' %}" alt="Send" class="ft-email-arrow">
+
+			<div class="copyright">© Copyright CryptoMixer Inc.</div>
+		</div>
+	</footer>
+</body>
+
+</html>
+
+
+<script>
+	$(document).ready(function () {
+		$(".animsition").animsition({
+			inClass: 'fade-in',
+			outClass: 'fade-out',
+			inDuration: 1500,
+			outDuration: 800,
+			linkElement: '.animsition-link',
+			// e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
+			loading: true,
+			loadingParentElement: 'body', //animsition wrapper element
+			loadingClass: 'animsition-loading',
+			loadingInner: '', // e.g '<img src="loading.svg" />'
+			timeout: false,
+			timeoutCountdown: 5000,
+			onLoadEvent: true,
+			browser: ['animation-duration', '-webkit-animation-duration'],
+			// "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+			// The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+			overlay: false,
+			overlayClass: 'animsition-overlay-slide',
+			overlayParentElement: 'body',
+			transition: function (url) { window.location.href = url; }
+		});
+	});
+</script>
