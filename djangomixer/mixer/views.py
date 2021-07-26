@@ -58,55 +58,55 @@ API_BASE_URL = 'https://jobcoin.gemini.com/kept-velvet/api'
 API_TRANSACTIONS_URL = '{}/transactions'.format(API_BASE_URL)
 
 
-# @csrf_exempt
-# def open_requests_api(request):
-#     if request.method != "POST":
-#         return HttpResponse('NOT A POST')
+@csrf_exempt
+def open_requests_api(request):
+    if request.method != "POST":
+        return HttpResponse('NOT A POST')
 
-#     open_requests = MixerRequest.objects.filter(status='created')
+    open_requests = MixerRequest.objects.filter(status='created')
     
-#     # end early if no open req's
-#     if not len(open_requests):
-#         return HttpResponse('OK')
+    # end early if no open req's
+    if not len(open_requests):
+        return HttpResponse('OK')
     
-#     body = json.loads(request.body.decode('utf8'))
-#     new_count = int(body['new_count'])
+    body = json.loads(request.body.decode('utf8'))
+    new_count = int(body['new_count'])
 
-#     transactions_json = requests.get(API_TRANSACTIONS_URL).json()
+    transactions_json = requests.get(API_TRANSACTIONS_URL).json()
 
-#     # Grab only the new transactions, as indicated by cached count
-#     new_transactions = transactions_json[-new_count:]
+    # Grab only the new transactions, as indicated by cached count
+    new_transactions = transactions_json[-new_count:]
 
 
 
-#     req_set = set()
-#     for req in open_requests:
-#         req_set.add(f'{req.src_address}|{req.deposit_address}')
+    req_set = set()
+    for req in open_requests:
+        req_set.add(f'{req.src_address}|{req.deposit_address}')
     
-#     for transaction in new_transactions:
-#         print(transaction)
-#         trans_string = f"{transaction['fromAddress']}|{transaction['toAddress']}"
+    # for transaction in new_transactions:
+    #     print(transaction)
+    #     trans_string = f"{transaction['fromAddress']}|{transaction['toAddress']}"
         
-#         if trans_string in req_set:
-#             # TODO: do the thing
-#             # get the amount, store (in new model)
+    #     if trans_string in req_set:
+    #         # TODO: do the thing
+    #         # get the amount, store (in new model)
 
-#             # ['alpha', bravo, charlie, delta, echo, foxtrot, golf, hotel, india, juliet, kilo, lima, mike]
+    #         # ['alpha', bravo, charlie, delta, echo, foxtrot, golf, hotel, india, juliet, kilo, lima, mike]
 
 
-#             # separate into function to handle multiple destination wallets
-#             total_percent = 100
-#             # example: $100
+    #         # separate into function to handle multiple destination wallets
+    #         total_percent = 100
+    #         # example: $100
 
-#             while total_percent:
-#                 # random_percentage (10-33%)
-#                 # edge case: make sure total_percent >= random_percentage
-#                 # choose a path of 3-7 wallets for random_percentage*amount from start to finish
-#                 # for (iterate through wallets):
-#                 # make the API calls to send money
+    #         while total_percent:
+    #             # random_percentage (10-33%)
+    #             # edge case: make sure total_percent >= random_percentage
+    #             # choose a path of 3-7 wallets for random_percentage*amount from start to finish
+    #             # for (iterate through wallets):
+    #             # make the API calls to send money
                 
 
-#                 total_percent -= random_percent
+    #             total_percent -= random_percent
             
 
             
@@ -115,14 +115,14 @@ API_TRANSACTIONS_URL = '{}/transactions'.format(API_BASE_URL)
 
 
 
-#             # TODO: update the request
+    #         # TODO: update the request
 
-#             req_set.remove(trans_string)
-#             if not req_set:
-#                 break
+    #         req_set.remove(trans_string)
+    #         if not req_set:
+    #             break
 
-#     # compare open requests to new transactions
+    # compare open requests to new transactions
 
     
 
-#     return HttpResponse('OK')
+    return HttpResponse('OK')
