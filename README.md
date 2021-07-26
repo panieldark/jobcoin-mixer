@@ -45,4 +45,6 @@ Some things to note:
   - tweak the randomness parameters as necessary to balance privacy and runtime (definitely room to utilize more runtime in this case)
 - Better healthchecks/fail gracefully mechanisms
 - Email notifications via mailchimp/Amazon SQS/other TPA, both for the mixing service (for customers on the ETA/status of their mixing requests) and for visibility into the pipeline/lambda services. ~~AWS should not be trusted~~ Anything can happen to services over a continued span of time
+- migrate off of Django and build the cryptomixer platform as a serverless web app (Django + VM is probably overkill)
+   - ex: AWS Amplify (frontend), Amazon API Gateway + AWS Lambda + AWS DynamoDB as REST API
 - make the site responsive (like a decent human being would)
