@@ -30,7 +30,7 @@ Some things to note:
   For each destination address, a path of wallets is randomly selected:
   - This path varies in the percentage of total amount sent (currently between 9-23%), the number of wallets in the path (currently 2-5 wallets), and the path of the wallets themselves (randomly selected amongst the pool of reserve wallets), before ending at the resulting addresses
 
-### The tech, simplified:
+### The tech (simplified):
 
 ![tech, simplified](https://jobcoin-mixer.s3.amazonaws.com/static/media/tech.png)
 
