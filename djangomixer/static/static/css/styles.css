@@ -1,12 +1,11 @@
-/* Desktop - 1 */
 @font-face {
 	font-family: 'Cabin';
-	src: url('../fonts/Cabin/Cabin-Regular.ttf');
+	src: url('https://jobcoin-mixer.s3.amazonaws.com/static/static/fonts/Cabin/Cabin-Regular.ttf');
 }
 
 @font-face {
 	font-family: 'Raleway';
-	src: url('../fonts/Raleway/Raleway-Regular.ttf');
+	src: url('https://jobcoin-mixer.s3.amazonaws.com/static/static/fonts/Raleway/Raleway-Regular.ttf');
 }
 
 a {
@@ -808,7 +807,7 @@ a:hover {
 }
 
 .r3-name {
-	width: 85px;
+	width: 95px;
 	height: 24px;
 	left: 1043.8px;
 	top: 2988px;
