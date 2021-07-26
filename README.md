@@ -2,7 +2,7 @@
 
 <a href="http://cryptomixer.fun" target="_blank">http://cryptomixer.fun/</a>
 
-<a href="https://www.figma.com/file/ibWgfCTlrCLhZvsP45nISK/UI-Prep-Style-Guide-3.2-Community?node-id=856%3A11077" target="_blank">The Design (Figma)</a>
+<a href="https://www.figma.com/file/stYqqiSCeNj7b5a90lwXEJ/Jobcoin-Gemini-Daniel-Park?node-id=0%3A1" target="_blank">The Design (Figma)</a>
 ## Use Case
 
 1. Navigate to <a href="http://cryptomixer.fun/mix/" target="_blank">http://cryptomixer.fun/mix/</a> and enter a starting address and up to five destination addresses
