@@ -137,6 +137,10 @@
 	$('#process-button').on('click', function () {
 		var src = $('#src').val();
 		var dest1 = $('#dest1').val();
+		var dest2 = $('#dest2').val();
+		var dest3 = $('#dest3').val();
+		var dest4 = $('#dest4').val();
+		var dest5 = $('#dest5').val();
 
 		$.ajax({
 
@@ -146,6 +150,10 @@
 			data: {
 				'src': src,
 				'dest1': dest1,
+				'dest2': dest2,
+				'dest3': dest3,
+				'dest4': dest4,
+				'dest5': dest5,
 				'csrfmiddlewaretoken': "{{ csrf_token }}"
 			},
 			dataType: "json",

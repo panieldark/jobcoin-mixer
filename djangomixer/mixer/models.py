@@ -13,13 +13,13 @@ MIXER_STATUS_CHOICES = (
 class MixerRequest(models.Model):
 	src_address = models.CharField(max_length=50, default='', blank=True)
 	dest_address = models.CharField(max_length=50, default='', blank=True)
-	dest_address_2 = models.CharField(max_length=50, default='', blank=True)
-	dest_address_3 = models.CharField(max_length=50, default='', blank=True)
-	dest_address_4 = models.CharField(max_length=50, default='', blank=True)
-	dest_address_5 = models.CharField(max_length=50, default='', blank=True)
+	dest_address_2 = models.CharField(max_length=50, default='', blank=True, null=True)
+	dest_address_3 = models.CharField(max_length=50, default='', blank=True, null=True)
+	dest_address_4 = models.CharField(max_length=50, default='', blank=True, null=True)
+	dest_address_5 = models.CharField(max_length=50, default='', blank=True, null=True)
 	deposit_address = models.CharField(max_length=50, default='', blank=True)
 	status = models.CharField(
 		max_length=50, default='created', choices=MIXER_STATUS_CHOICES)
 
 	def __str__(self):
-		return f"Request from {self.src_address} to {self.dest_address}"
+		return f"Request from {self.src_address} depositing to {self.deposit_address}"

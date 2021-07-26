@@ -114,12 +114,20 @@ def open_requests_api(request):
 
                 
                 deposit_address = req_map[trans_string].deposit_address
-                final_address = req_map[trans_string].dest_address
+
+                # compile list of destination wallets
+                destinations_list = [address for address in [req_map[trans_string].dest_address, req_map[trans_string].dest_address_2, \
+                    req_map[trans_string].dest_address_3, req_map[trans_string].dest_address_4, req_map[trans_string].dest_address_5] if address]
 
                 # Take a 3% fee, add it to cryptomixer wallet, return new amount
                 new_amount = take_fee(deposit_address, amount)
 
-                mixed_request = mix_coins_amongst_wallets(deposit_address, final_address, new_amount)
+                # Deliver to each destination address a fraction of the new amount
+                for dest in destinations_list:
+                    mixed_request = mix_coins_amongst_wallets(deposit_address, dest, new_amount/len(destinations_list))
+                    if not mixed_request:
+                        return HttpResponse('Failed to deliver')
+
                 
                 
                 # Update the request object
