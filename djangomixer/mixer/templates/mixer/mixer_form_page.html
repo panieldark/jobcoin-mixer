@@ -41,7 +41,16 @@
 		<!-- {% csrf_token %} -->
 
 		<input type="text" class="src-field" placeholder="Source Address" name="src" id="src" required>
-		<input type="text" class="dst-field-1" placeholder="Destination Address #1" name="dest1" id="dest1" required>
+		<input type="text" class="dst-field-1 dst-field" placeholder="Destination Address #1" name="dest1" id="dest1"
+			required>
+		<input type="text" class="dst-field-2 dst-field" placeholder="Destination Address #2 (optional)" name="dest2"
+			id="dest2">
+		<input type="text" class="dst-field-3 dst-field" placeholder="Destination Address #3 (optional)" name="dest3"
+			id="dest3">
+		<input type="text" class="dst-field-4 dst-field" placeholder="Destination Address #4 (optional)" name="dest4"
+			id="dest4">
+		<input type="text" class="dst-field-5 dst-field" placeholder="Destination Address #5 (optional)" name="dest5"
+			id="dest5">
 
 		<button type="submit" class="mixer-button" id='process-button' disabled>Start the process</button>
 		<!-- </form> -->

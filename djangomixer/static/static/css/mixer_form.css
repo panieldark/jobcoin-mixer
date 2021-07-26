@@ -12,7 +12,7 @@ a {
 	z-index: 10;
 	cursor: pointer;
 	text-decoration: none;
-	transition: all .4s ease-in-out;
+	transition: all 4s ease-in-out;
 }
 
 a:hover {
@@ -71,7 +71,7 @@ a:hover {
 
 	position: absolute;
 	width: 800px;
-	height: 119px;
+	height: 75px;
 	left: 145px;
 	top: 219px;
 
@@ -146,10 +146,10 @@ a:hover {
 
 .dst-field-header {
 	position: absolute;
-	width: 423px;
+	width: 487px;
 	height: 25px;
-	left: 145px;
-	top: 575px;
+	left: 708px;
+	top: 445px;
 
 	font-family: Cabin;
 	font-style: normal;
@@ -162,12 +162,8 @@ a:hover {
 
 }
 
-.dst-field-1 {
-	position: absolute;
-	width: 433px;
-	height: 44px;
-	left: 142px;
-	top: 608px;
+.dst-field {
+
 	background: rgba(255, 255, 255, 0.9);
 	/* Big Shadow */
 
@@ -181,6 +177,53 @@ a:hover {
 	font-size: 20px;
 	line-height: 19px;
 }
+
+.dst-field-1 {
+	position: absolute;
+	width: 433px;
+	height: 44px;
+	left: 705px;
+	top: 478px;
+
+}
+
+.dst-field-2 {
+	position: absolute;
+	width: 433px;
+	height: 44px;
+	left: 705px;
+	top: 532px;
+
+}
+
+.dst-field-3 {
+	position: absolute;
+	width: 433px;
+	height: 44px;
+	left: 705px;
+	top: 586px;
+
+
+}
+
+.dst-field-4 {
+	position: absolute;
+	width: 433px;
+	height: 44px;
+	left: 705px;
+	top: 640px;
+
+}
+
+.dst-field-5 {
+	position: absolute;
+	width: 433px;
+	height: 44px;
+	left: 705px;
+	top: 694px;
+
+}
+
 
 .field-1::placeholder {
 	position: absolute;
@@ -199,11 +242,11 @@ a:hover {
 
 .mixer-button {
 	position: absolute;
-	width: 172px;
-	height: 48px;
+	width: 147px;
+	height: 44px;
+	left: 1151px;
+	top: 478px;
 
-	left: 596px;
-	top: 609px;
 
 
 
