@@ -58,71 +58,105 @@ API_BASE_URL = 'https://jobcoin.gemini.com/kept-velvet/api'
 API_TRANSACTIONS_URL = '{}/transactions'.format(API_BASE_URL)
 
 
+
 @csrf_exempt
 def open_requests_api(request):
     if request.method != "POST":
         return HttpResponse('NOT A POST')
 
-    open_requests = MixerRequest.objects.filter(status='created')
-    
-    # end early if no open req's
-    if not len(open_requests):
-        return HttpResponse('OK')
-    
-    body = json.loads(request.body.decode('utf8'))
-    new_count = int(body['new_count'])
 
-    transactions_json = requests.get(API_TRANSACTIONS_URL).json()
-
-    # Grab only the new transactions, as indicated by cached count
-    new_transactions = transactions_json[-new_count:]
-
-
-
-    req_set = set()
-    for req in open_requests:
-        req_set.add(f'{req.src_address}|{req.deposit_address}')
-    
-    # for transaction in new_transactions:
-    #     print(transaction)
-    #     trans_string = f"{transaction['fromAddress']}|{transaction['toAddress']}"
+    try:
+        open_requests = MixerRequest.objects.filter(status='created')
         
-    #     if trans_string in req_set:
-    #         # TODO: do the thing
-    #         # get the amount, store (in new model)
+        # end early if no open req's
+        if not len(open_requests):
+            return HttpResponse('OK')
+        
+        body = json.loads(request.body.decode('utf8'))
+        new_count = int(body['new_count'])
 
-    #         # ['alpha', bravo, charlie, delta, echo, foxtrot, golf, hotel, india, juliet, kilo, lima, mike]
+        transactions_json = requests.get(API_TRANSACTIONS_URL).json()
+
+        # Grab only the new transactions, as indicated by cached count
+        new_transactions = transactions_json[-new_count:]
 
 
-    #         # separate into function to handle multiple destination wallets
-    #         total_percent = 100
-    #         # example: $100
+        # Make a dict for O(1) lookups
+        req_map = dict()
+        for req in open_requests:
+            req_map[f'{req.src_address}|{req.deposit_address}'] = req
+        
 
-    #         while total_percent:
-    #             # random_percentage (10-33%)
-    #             # edge case: make sure total_percent >= random_percentage
-    #             # choose a path of 3-7 wallets for random_percentage*amount from start to finish
-    #             # for (iterate through wallets):
-    #             # make the API calls to send money
+
+        for transaction in new_transactions:
+            print(transaction)
+            trans_string = f"{transaction['fromAddress']}|{transaction['toAddress']}"
+            
+            if trans_string in req_map.keys():
+
+                amount = float(transaction['amount'])
+
                 
+                
+                mixed_request = mix_coins_amongst_wallets(transaction['fromAddress'], transaction['toAddress'], amount)
+                
+                
+                # Update the request object
+                request = req_map[trans_string]
+                request.status = 'completed' if mixed_request else 'failed'
+                request.save()
 
-    #             total_percent -= random_percent
-            
 
-            
+                req_map.pop(trans_string)
 
-
-
-
-
-    #         # TODO: update the request
-
-    #         req_set.remove(trans_string)
-    #         if not req_set:
-    #             break
-
-    # compare open requests to new transactions
-
+                # Finish early if there are no more requests to process
+                if not req_map:
+                    break
     
+    except Exception as e:
+        print(e)
+        return HttpResponse('Failed')
 
     return HttpResponse('OK')
+
+
+
+def mix_coins_amongst_wallets(fromAddress, toAddress, amount):
+    house_wallets = ['alpha', 'bravo', 'charlie', 'delta', 'echo', 'foxtrot', 'golf', 'hotel', 'india', 'juliet']
+
+    total_percent = 100
+
+    while total_percent:
+
+        # edge case: make sure total_percent >= random_percentage
+        random_percent = min(random.randint(10, 33), total_percent)/100
+
+        random_num_wallets = random.randint(3,7)
+        
+        previous_wallet = fromAddress
+
+
+        # choose a path of 3-7 wallets for random_percent*amount from start to finish
+        for i in range(random_num_wallets):
+            next_wallet = house_wallets[random.randint(0,9)]
+            
+            if previous_wallet == next_wallet:
+                continue
+            # make API calls to send money
+            try:
+                req = requests.post(API_TRANSACTIONS_URL, data={"fromAddress": previous_wallet, "toAddress": next_wallet, 'amount': amount*random_percent})
+                if int(req.status_code) >= 400:
+                    raise Exception(req.status_code)
+            except Exception as e:
+                print(e)
+                return False
+            
+            previous_wallet = next_wallet
+        
+        # finally, send this chunk of money to final destination
+        req = requests.post(API_TRANSACTIONS_URL, data={"fromAddress": previous_wallet, "toAddress": toAddress, 'amount': amount*random_percent})
+
+
+        total_percent -= random_percent
+    
+    return True

@@ -92,7 +92,7 @@ DATABASES = {
     'ENGINE': 'django.db.backends.postgresql',
     'NAME': 'jobcoinmixerdb',
     'USER': 'postgres',
-    'PASSWORD': os.getenv('DB_PASSWORD'),
+    'PASSWORD': 'password',
     'HOST': 'jobcoin-mixer-db.c0wfspocwbaj.us-east-1.rds.amazonaws.com',
     'PORT':'5432',
     }
@@ -136,12 +136,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 
-USE_S3 = os.getenv('USE_S3') == 'TRUE'
-
+# USE_S3 = os.getenv('USE_S3') == 'TRUE'
+USE_S3 = True
 if USE_S3:
-    AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
-    AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
-    AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
+    AWS_ACCESS_KEY_ID = 'AKIATZ2MM3E7ZFPFW5VD'
+    AWS_SECRET_ACCESS_KEY = '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'
+    AWS_STORAGE_BUCKET_NAME = 'jobcoin-mixer'
     AWS_DEFAULT_ACL = 'public-read'
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
