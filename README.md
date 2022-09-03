@@ -1,6 +1,6 @@
 # Jobcoin Mixer - Daniel Park
 
-~~<a href="http://cryptomixer.fun" target="_blank">http://cryptomixer.fun/</a>~~ Update: turned off AWS host. Probably will migrate hosting to a free solution like Firebase hosting
+~~<a href="http://cryptomixer.fun" target="_blank">http://cryptomixer.fun/</a>~~ Update: turned off AWS host. Probably will migrate hosting to a free solution like Firebase hosting. In the meantime, check out the Figma file below
 
 <a href="https://www.figma.com/file/stYqqiSCeNj7b5a90lwXEJ/Jobcoin-Gemini-Daniel-Park?node-id=0%3A1" target="_blank">The Design (Figma)</a>
 ## Use Case
